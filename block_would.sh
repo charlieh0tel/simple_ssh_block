@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
-./block.py < /var/log/auth.log
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+"${DIR}"/block.py < /var/log/auth.log
