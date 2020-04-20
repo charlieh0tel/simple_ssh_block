@@ -7,16 +7,21 @@ import netaddr
 
 IPV4_REGEX = "\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}"
 
-PREAUTH_DISCONNECT='Disconnected from (' + IPV4_REGEX + ') port \d+ \[preauth\]'
+PREAUTH_DISCONNECT=(
+    'Disconnected from (' + IPV4_REGEX + ') port \d+ \[preauth\]')
 PREAUTH_AUTH_DISCONNECT=(
     'Disconnected from authenticating user \S+ (' + IPV4_REGEX + ') port \d+ \[preauth\]')
 PREAUTH_INVALID_USER_DISCONNECT=(
     'Disconnected from invalid user \S+ (' + IPV4_REGEX + ') port \d+ \[preauth\]')
+PREAUTH_INVALID_USER_CLOSED=(
+    'Connection closed by invalid user \S+ (' + IPV4_REGEX + ') port \d+ \[preauth\]')
+
 
 BAN_REGEXES=[
     PREAUTH_DISCONNECT,
     PREAUTH_AUTH_DISCONNECT,
-    PREAUTH_INVALID_USER_DISCONNECT
+    PREAUTH_INVALID_USER_DISCONNECT,
+    PREAUTH_INVALID_USER_CLOSED
 ]
 
 IPSET_INVALID=netaddr.IPSet([
